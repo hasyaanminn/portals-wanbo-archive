@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>万博体育 · 知识库导览</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #f5fafa;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e2b3c;
+            line-height: 1.6;
+            padding: 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wrapper {
+            max-width: 1120px;
+            width: 100%;
+        }
+
+        /* ===== HERO 简洁标题区 ===== */
+        .hero {
+            margin-bottom: 2.5rem;
+            text-align: left;
+            border-bottom: 2px solid #b2d9d0;
+            padding-bottom: 1.2rem;
+        }
+        .hero h1 {
+            font-size: 1.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #0b5e5c;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.3rem 0.1rem;
+        }
+        .hero h1 .accent {
+            background: #d6eee9;
+            padding: 0 0.4rem;
+            border-radius: 6px;
+            font-weight: 450;
+        }
+        .hero p {
+            max-width: 640px;
+            margin-top: 0.7rem;
+            color: #3b5166;
+            font-size: 1rem;
+        }
+
+        /* ===== 卡片网格：目录感布局 ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+        @media (min-width: 600px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 900px) {
+            .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+            .grid .card:first-child {
+                grid-column: 1 / 2;
+            }
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.6rem 1.3rem 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 60, 70, 0.06), 0 1px 3px rgba(0, 40, 50, 0.04);
+            border: 1px solid #d2e8e4;
+            transition: box-shadow 0.15s ease;
+        }
+        .card:hover {
+            box-shadow: 0 8px 22px rgba(9, 103, 103, 0.08);
+        }
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: #0b5e5c;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .card h2::before {
+            content: "▹";
+            color: #2b9b8f;
+            font-size: 1.1rem;
+        }
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #2f4055;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+        .card ul li {
+            padding: 0.3rem 0 0.3rem 1.2rem;
+            position: relative;
+        }
+        .card ul li::before {
+            content: "–";
+            position: absolute;
+            left: 0;
+            color: #6f9b94;
+        }
+        .tag {
+            display: inline-block;
+            background: #d4ece7;
+            color: #115e59;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+            margin-right: 0.4rem;
+        }
+
+        /* ===== 说明区 + 提示区 混合模块 ===== */
+        .info-panel {
+            background: #e7f4f1;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem;
+            margin-bottom: 2.2rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 1.8rem 2.8rem;
+            border: 1px solid #b9d9d2;
+        }
+        .info-panel .section-block {
+            flex: 1 1 200px;
+            min-width: 160px;
+        }
+        .info-panel .section-block h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #105a56;
+            margin-bottom: 0.5rem;
+            border-left: 4px solid #2b9b8f;
+            padding-left: 0.7rem;
+        }
+        .info-panel .section-block p {
+            font-size: 0.95rem;
+            color: #2b4257;
+            margin-bottom: 0.3rem;
+        }
+        .info-panel .section-block .hint {
+            background: #ffffffb0;
+            border-radius: 40px;
+            padding: 0.2rem 1rem 0.2rem 0.8rem;
+            display: inline-block;
+            font-size: 0.85rem;
+            border: 1px solid #b7d1cb;
+            margin-top: 0.3rem;
+            color: #1a5b53;
+        }
+
+        /* ===== 相关信息区（FAQ 摘要+延伸） ===== */
+        .related {
+            margin: 2rem 0 2.8rem;
+        }
+        .related h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0b5e5c;
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        .related h3 span {
+            background: #b2d9d0;
+            height: 2px;
+            flex: 1;
+            margin-left: 1rem;
+        }
+        .accordion-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        .accordion-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1rem 1.4rem;
+            border: 1px solid #d0e3df;
+        }
+        .accordion-item summary {
+            font-weight: 480;
+            font-size: 1rem;
+            color: #1f4b47;
+            cursor: default;
+            padding: 0.2rem 0;
+            list-style: none;
+        }
+        .accordion-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .accordion-item p {
+            margin-top: 0.5rem;
+            color: #2d4a60;
+            font-size: 0.93rem;
+            line-height: 1.5;
+            padding-right: 0.5rem;
+        }
+        .accordion-item .meta {
+            font-size: 0.78rem;
+            color: #63827d;
+            margin-top: 0.4rem;
+            display: block;
+        }
+
+        /* ===== 链接 inline 样式 ===== */
+        .inline-link {
+            color: #11756b;
+            text-decoration: none;
+            font-weight: 470;
+            border-bottom: 1px solid #79b6ad;
+            transition: border-color 0.1s, background 0.1s;
+        }
+        .inline-link:hover {
+            border-bottom-color: #0b5e5c;
+            background: #d5f0eb;
+        }
+
+        /* ===== 页脚 ===== */
+        .footer-note {
+            margin-top: 0.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #c3dbd5;
+            font-size: 0.85rem;
+            color: #51726b;
+            text-align: center;
+        }
+
+        /* ===== 响应式微调 ===== */
+        @media (max-width: 480px) {
+            body { padding: 0.9rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .card { padding: 1.2rem 1rem; }
+            .info-panel { padding: 1.3rem 1rem; }
+            .accordion-item { padding: 0.8rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <!-- HERO 简明标题 -->
+    <header class="hero">
+        <h1>
+            <span class="accent">万博体育</span>
+            <span style="font-weight: 350; color: #3b6b66;">· 知识库导览</span>
+        </h1>
+        <p>日常查询、对照与延伸阅读的轻量信息页。整理常见主题、使用场景及背景说明。</p>
+    </header>
+
+    <!-- 网格卡片：目录感布局 -->
+    <div class="grid">
+        <div class="card">
+            <h2>常见查询主题</h2>
+            <ul>
+                <li>平台基础信息与版本沿革</li>
+                <li>术语对照 · 常用名词解释</li>
+                <li>历史公告与更新日志摘要</li>
+                <li>第三方参考索引</li>
+            </ul>
+            <p style="margin-top: 0.8rem; font-size: 0.88rem; color: #4d6f6a;"><span class="tag">检索</span> 定向内容持续收录</p>
+        </div>
+        <div class="card">
+            <h2>使用场景速览</h2>
+            <ul>
+                <li>新用户指引 · 功能模块概览</li>
+                <li>活动规则与条款对照</li>
+                <li>账户与安全常见设置</li>
+                <li>多端适配说明</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h2>延伸阅读</h2>
+            <ul>
+                <li>行业动态与合规简报</li>
+                <li>数据统计与趋势报告（摘要）</li>
+                <li>同类服务对比简表</li>
+                <li>用户调研与反馈精选</li>
+            </ul>
+            <p style="margin-top: 0.7rem; font-size: 0.88rem; color: #4d6f6a;">内容不定期更新</p>
+        </div>
+    </div>
+
+    <!-- 说明区+提示区 混合模块 -->
+    <div class="info-panel">
+        <div class="section-block">
+            <h3>说明</h3>
+            <p>本页汇集与 <a href="https://portals-wanbo.com" class="inline-link">万博体育</a> 相关的知识索引，面向日常对照和话题延伸。所有条目均基于公开信息整理，不构成操作建议或承诺。</p>
+        </div>
+        <div class="section-block">
+            <h3>提示</h3>
+            <p>内容仅供参考，部分信息可能存在时效差异。如需核对最新条款或了解具体功能，建议直接查阅官方出处。</p>
+            <div class="hint">⏺ 保持信息源交叉验证</div>
+        </div>
+        <div class="section-block">
+            <h3>相关信息</h3>
+            <p>常见问题归类、场景对照表及扩展阅读索引正在逐步完善。日常查询时可将本页作为出发点。</p>
+        </div>
+    </div>
+
+    <!-- 相关信息区：FAQ 摘要 + 延伸 -->
+    <div class="related">
+        <h3>FAQ 摘要 · 延伸对照 <span></span></h3>
+        <div class="accordion-grid">
+            <div class="accordion-item">
+                <summary>▸ 如何快速查找特定主题？</summary>
+                <p>可利用浏览器页面查找（Ctrl+F / 移动端菜单内查找）定位关键词。目前知识条目按模块划分，后续会增加全文检索提示。</p>
+                <span class="meta">分类：使用方式</span>
+            </div>
+            <div class="accordion-item">
+                <summary>▸ 信息更新周期是多久？</summary>
+                <p>基础模块每季度核对一次，活动及公告类依实际发布节奏同步。建议同时留意官方动态。</p>
+                <span class="meta">分类：维护说明</span>
+            </div>
+            <div class="accordion-item">
+                <summary>▸ 能否直接引用本页内容？</summary>
+                <p>本页为知识库导览，部分内容为二次整理。引用时建议回溯原始出处，以确保准确。</p>
+                <span class="meta">分类：引用须知</span>
+            </div>
+            <div class="accordion-item">
+                <summary>▸ 延伸阅读包含哪些方向？</summary>
+                <p>涵盖行业观察、术语演变、功能对比等非实时类内容，适合背景了解与横向对照。</p>
+                <span class="meta">分类：内容范畴</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>知识库入口 · 日常查询与延伸阅读 · 信息持续整编</span>
+    </div>
+</div>
+</body>
+</html>
