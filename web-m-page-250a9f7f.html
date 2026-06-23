@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>米兰体育 · 简明使用指南与访问说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #faf8f5;
+      color: #2c2c2c;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.25rem;
+      color: #1f1f1f;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #6b6b6b;
+      border-left: 3px solid #d9d0c5;
+      padding-left: 1rem;
+      margin-top: 0.25rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin-top: 2.2rem;
+      margin-bottom: 0.75rem;
+      color: #2a2a2a;
+      border-bottom: 1px solid #eae5de;
+      padding-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 1.5rem;
+      margin-bottom: 0.4rem;
+      color: #3e3e3e;
+    }
+
+    p {
+      margin-bottom: 1.2rem;
+    }
+
+    .highlight-block {
+      background: #f4f1ed;
+      border-left: 4px solid #9b8c7c;
+      padding: 1.2rem 1.5rem;
+      margin: 1.8rem 0;
+      border-radius: 0 12px 12px 0;
+    }
+
+    .highlight-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.5rem 0 1rem;
+    }
+
+    .card {
+      background: #f8f6f3;
+      border-radius: 14px;
+      padding: 1.2rem 1.2rem 1rem;
+      border: 1px solid #eeeae5;
+    }
+
+    .card h4 {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #2f2f2f;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.92rem;
+      color: #4f4f4f;
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      color: #6b5f53;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #c5b9ad;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #6b5f53;
+      color: #3e342b;
+    }
+
+    .faq-item {
+      margin: 1.2rem 0 0.8rem;
+    }
+
+    .faq-question {
+      font-weight: 500;
+      color: #353535;
+      margin-bottom: 0.15rem;
+    }
+
+    .faq-answer {
+      color: #555;
+      font-size: 0.95rem;
+      padding-left: 0.3rem;
+      border-left: 2px solid #ddd6cd;
+      padding-left: 1rem;
+    }
+
+    .access-note {
+      background: #f1ede8;
+      border-radius: 14px;
+      padding: 1.2rem 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: #3d3d3d;
+    }
+
+    .access-note strong {
+      color: #2c2c2c;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e7e0d8;
+      margin: 2rem 0 1rem;
+    }
+
+    footer {
+      margin-top: 2.2rem;
+      font-size: 0.85rem;
+      color: #8a7f74;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .container {
+        padding: 1.5rem 1.2rem;
+        border-radius: 14px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .highlight-block {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>米兰体育</h1>
+    <div class="subtitle">简明指南 · 功能亮点 · 访问提醒</div>
+
+    <p>
+      <strong>米兰体育</strong> 是一个专注于体育内容与交互体验的平台，提供实时赛事信息、数据参考以及社区讨论空间。本节介绍页从产品使用角度出发，整理关键功能、适用场景与注意事项，帮助你快速了解 <a class="inline-link" href="https://web-m-milansports.com">米兰体育</a> 的核心价值与合理使用方式。
+    </p>
+
+    <div class="highlight-block">
+      <p><strong>关于本文档</strong> —— 以下内容基于平台公开信息与常见用户使用经验整理，不构成任何形式的投资、竞猜或法律建议。所有访问行为请遵守当地法律法规及平台条款。</p>
+    </div>
+
+    <h2>一、什么是米兰体育</h2>
+    <p>
+      <a class="inline-link" href="https://web-m-milansports.com">米兰体育</a> 聚合了多类体育项目的实时比分、赛程统计、队伍数据和用户讨论。界面设计注重信息层级，让使用者能快速定位到感兴趣的赛事或数据模块。平台同时提供历史数据查询与可视化概览，适合体育爱好者、数据分析型用户以及希望追踪特定联赛动态的访客。
+    </p>
+
+    <h2>二、主要特点</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4>实时数据更新</h4>
+        <p>覆盖足球、篮球、网球等主流项目，比赛数据每分钟同步，减少延迟。</p>
+      </div>
+      <div class="card">
+        <h4>结构化信息流</h4>
+        <p>赛程、比分、积分榜以卡片和时间线形式呈现，一目了然。</p>
+      </div>
+      <div class="card">
+        <h4>多端适应</h4>
+        <p>通过浏览器即可使用，在电脑与手机设备上均有较清晰的排版效果。</p>
+      </div>
+      <div class="card">
+        <h4>社区互动</h4>
+        <p>对特定比赛或话题可参与讨论，但请注意保持文明发言与合理交流。</p>
+      </div>
+    </div>
+
+    <h2>三、常见使用场景</h2>
+    <p>
+      <strong>日常看赛</strong> —— 在比赛日快速查看当前比分、进球事件及红黄牌记录。<br>
+      <strong>数据分析</strong> —— 利用历史赛果和统计数据辅助球队状态分析，或用于兴趣层面的研究。<br>
+      <strong>讨论交流</strong> —— 在对应赛事页面中阅读或参与评论，获取其他用户的观点与即时反应。
+    </p>
+    <p>
+      建议在使用时开启浏览器定位或语言偏好设置，某些区域可能自动显示更相关的联赛与本地化内容。
+    </p>
+
+    <h2>四、访问提示与说明</h2>
+    <p>
+      为保障使用体验与信息安全，请留意以下几点：
+    </p>
+    <ul style="padding-left: 1.8rem; margin-bottom: 1.2rem; list-style-type: disc; color: #4a4a4a;">
+      <li>通过官方域名 <a class="inline-link" href="https://web-m-milansports.com">米兰体育</a> 直接访问，避免使用来源不明的镜像或第三方链接。</li>
+      <li>平台不需要提供个人敏感信息（如银行账号、身份证明）即可浏览大部分内容；如遇到强制要求，请谨慎核实。</li>
+      <li>部分功能（如评论、收藏）可能需要注册账号，请使用强度可靠的密码并避免跨平台重复使用。</li>
+      <li>网络环境不稳定时，可尝试刷新或更换网络，不建议使用未经验证的加速工具。</li>
+    </ul>
+
+    <div class="faq-item">
+      <div class="faq-question">❓ 是否需要付费才能使用？</div>
+      <div class="faq-answer">基础数据浏览与赛程查看完全免费。某些高级统计或去广告选项可能涉及增值服务，以平台实际页面说明为准。</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">❓ 数据来源可靠程度如何？</div>
+      <div class="faq-answer">平台数据来自合作供应商与公共赛事信息，理论上具备参考价值，但任何实时数据均可能存在延迟或微小误差，重要决策请以官方赛事记录为准。</div>
+    </div>
+
+    <div class="access-note">
+      <strong>📌 访问提醒 · 负责任使用</strong><br>
+      请在个人理解与判断基础上使用 <a class="inline-link" href="https://web-m-milansports.com">米兰体育</a> 提供的信息。不要将平台数据用于非法或违反体育精神的用途。我们鼓励理性观赛、健康讨论，不提倡过度解读或依赖单一数据源。遇到任何合规性问题，建议暂停使用并咨询相关法律意见。
+    </div>
+
+    <hr>
+    <footer>
+      米兰体育 · 产品介绍页 · 信息供参考，请理性使用
+    </footer>
+  </div>
+</body>
+</html>
