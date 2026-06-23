@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>米兰体育 · 知识库入口</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f2f4f7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* 标题区 hero 轻量处理 */
+    .hero {
+      text-align: left;
+      padding: 2.2rem 0 1.2rem 0;
+      border-bottom: 1px solid #dce1e8;
+      margin-bottom: 2.4rem;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #121b27;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .subhead {
+      font-size: 1rem;
+      color: #4b5b6c;
+      max-width: 560px;
+    }
+
+    .hero .subhead a {
+      color: #1e2a3a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 0.5px;
+      text-decoration-color: #8c9aaa;
+    }
+
+    .hero .subhead a:hover {
+      text-decoration-color: #1e2a3a;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 680px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.6rem 1.8rem 1.8rem 1.8rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e3e8ef;
+      transition: box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+      border-color: #ccd3dd;
+    }
+
+    .card h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #e8ecf2;
+      color: #1a2635;
+    }
+
+    .card p {
+      font-size: 0.94rem;
+      color: #334152;
+      margin-bottom: 0.7rem;
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      margin: 0.6rem 0 0.4rem 0;
+      list-style: disc;
+    }
+
+    .card li {
+      font-size: 0.92rem;
+      color: #2c3b4d;
+      margin-bottom: 0.4rem;
+      line-height: 1.5;
+    }
+
+    .card .meta-note {
+      font-size: 0.85rem;
+      color: #6a7b8c;
+      border-left: 3px solid #d2dae4;
+      padding-left: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .highlight-box {
+      background: #f6f9fd;
+      border-radius: 12px;
+      padding: 1.4rem 1.8rem;
+      margin-bottom: 2rem;
+      border: 1px solid #dce4ee;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.01);
+    }
+
+    .highlight-box p {
+      font-size: 0.95rem;
+      color: #1f2f3f;
+    }
+
+    .highlight-box .label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: #55738f;
+      border: 1px solid #bcccd9;
+      padding: 0.15rem 0.6rem;
+      border-radius: 30px;
+      margin-bottom: 0.5rem;
+      background: #eef3f9;
+    }
+
+    .link-inline {
+      color: #1e2a3a;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #9caaba;
+      font-weight: 450;
+    }
+
+    .link-inline:hover {
+      text-decoration-color: #1e2a3a;
+    }
+
+    .faq-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .faq-item {
+      background: #fafbfc;
+      padding: 0.9rem 1.2rem;
+      border-radius: 10px;
+      border: 1px solid #e4e9f0;
+    }
+
+    .faq-item .q {
+      font-weight: 500;
+      font-size: 0.93rem;
+      color: #1b293b;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item .a {
+      font-size: 0.88rem;
+      color: #3b4d60;
+    }
+
+    .footnote {
+      margin-top: 2.8rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #dce1e8;
+      font-size: 0.85rem;
+      color: #5c6d7e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.7rem;
+    }
+
+    .footnote a {
+      color: #3c4f62;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 0.3rem 0.9rem;
+      border: 1px solid #cad2dd;
+      border-radius: 40px;
+      color: #1f2d3d;
+      background: transparent;
+      text-decoration: none;
+      transition: background 0.1s, border-color 0.1s;
+    }
+
+    .btn-ghost:hover {
+      background: #eef2f7;
+      border-color: #aab7c7;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1.2rem 0.9rem;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .card {
+        padding: 1.2rem 1.2rem 1.5rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- hero 轻量标题 -->
+  <div class="hero">
+    <h1>米兰体育 · 知识库</h1>
+    <div class="subhead">
+      信息整理 · 持续关注 · 收藏导向<br>
+      你可以从这里了解 <a href="https://web--milansports.com" class="link-inline">米兰体育</a> 的基础内容与相关提示。
+    </div>
+  </div>
+
+  <!-- 双栏卡片：目录式入口 -->
+  <div class="card-grid">
+    <!-- 卡片：再次访问与收藏 -->
+    <div class="card">
+      <h2>📌 再次访问 · 收藏</h2>
+      <p>如果你之前浏览过 <a href="https://web--milansports.com" class="link-inline">米兰体育</a> 并希望日后快速回来，建议将当前站点添加至浏览器书签。很多用户会定期回来查看内容更新，保持关注能第一时间获取调整信息。</p>
+      <ul>
+        <li>使用 Ctrl+D (或 Cmd+D) 添加书签</li>
+        <li>移动端可添加到主屏幕</li>
+        <li>关注页面结构变化，部分栏目会迭代</li>
+      </ul>
+      <div class="meta-note">提示：收藏后建议每月回访一次，留意整体布局或信息入口的更新。</div>
+    </div>
+
+    <!-- 卡片：持续关注角度 -->
+    <div class="card">
+      <h2>⏳ 持续关注</h2>
+      <p>对 <a href="https://web--milansports.com" class="link-inline">米兰体育</a> 保持长期关注，有助于你熟悉其信息组织方式和内容节奏。以下是一些关注节点：</p>
+      <ul>
+        <li>留意首页介绍区域的表述变化</li>
+        <li>观察分类或导航调整</li>
+        <li>内容更新频率与话题侧重</li>
+      </ul>
+      <p>通过持续观察，你会更清楚平台的内容脉络，也能更高效地使用相关资源。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 + 提示区 合并样式 -->
+  <div class="highlight-box">
+    <span class="label">说明</span>
+    <p><strong>关于本知识库</strong> — 本页整理了一些与米兰体育相关的简要信息，方便你快速回顾站点定位。所有描述均基于公开内容，不构成任何承诺或引导。如果你对站内信息有疑问，建议直接浏览 <a href="https://web--milansports.com" class="link-inline">米兰体育</a> 本身的内容。</p>
+  </div>
+
+  <div class="highlight-box" style="background: #f8fafe;">
+    <span class="label">提示</span>
+    <p>🔹 网站结构可能会随运营需要调整，请以实际页面为准。<br>
+    🔹 如果你是通过第三方渠道看到本页，请注意核实链接的真实性。<br>
+    🔹 一些设备或浏览器可能对站内某些交互有不同表现，可尝试更新至最新版本。</p>
+  </div>
+
+  <!-- 相关信息区 + FAQ 摘要 -->
+  <div style="margin: 2rem 0 0.8rem 0;">
+    <h2 style="font-weight: 400; font-size: 1.2rem; color: #1e2a3a; border-bottom: 1px solid #dce1e8; padding-bottom: 0.3rem; margin-bottom: 1rem;">📖 相关信息与常见要点</h2>
+  </div>
+
+  <div class="card-grid" style="margin-bottom: 1rem;">
+    <div class="card" style="padding-bottom: 1.2rem;">
+      <h2>📂 信息类别参考</h2>
+      <p>以下类别在米兰体育站内可能被提及或涉及，供你浏览时留意：</p>
+      <ul>
+        <li>运动项目相关介绍</li>
+        <li>赛事动态或资讯</li>
+        <li>平台功能说明</li>
+        <li>用户指引与常见问题</li>
+      </ul>
+      <p style="margin-top: 0.6rem; font-size: 0.88rem; color: #4d6378;">具体内容请以站内实际发布为准。</p>
+    </div>
+
+    <div class="card" style="padding-bottom: 1.2rem;">
+      <h2>❓ FAQ 摘要</h2>
+      <div class="faq-mini">
+        <div class="faq-item">
+          <div class="q">Q: 米兰体育网站是做什么的？</div>
+          <div class="a">A: 一个提供体育类信息或服务的平台，具体定位可浏览站内介绍页面。</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">Q: 如何快速回到这个站点？</div>
+          <div class="a">A: 将 <a href="https://web--milansports.com" class="link-inline">米兰体育</a> 加入浏览器书签或收藏夹即可。</div>
+        </div>
+        <div class="faq-item">
+          <div class="q">Q: 页面内容会变化吗？</div>
+          <div class="a">A: 有可能。建议定期访问以获取最新信息。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 额外提示行  -->
+  <div style="background: #f2f4f7; padding: 0.8rem 0rem 0.2rem 0rem; border-radius: 0; margin-top: 0.2rem;">
+    <p style="font-size: 0.9rem; color: #3a4d5f;">🔎 如果你需要更具体的细节，建议直接查阅 <a href="https://web--milansports.com" class="link-inline">米兰体育</a> 站内说明。本页仅作为知识库入口，内容客观且克制。</p>
+  </div>
+
+  <!-- 底部  -->
+  <div class="footnote">
+    <span>知识库入口 · 非官方声明</span>
+    <span>
+      <a href="https://web--milansports.com" class="btn-ghost">米兰体育</a>
+    </span>
+  </div>
+
+</div>
+</body>
+</html>
